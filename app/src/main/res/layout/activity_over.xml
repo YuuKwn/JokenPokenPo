@@ -1,9 +1,48 @@
 <?xml version="1.0" encoding="utf-8"?>
-<android.support.constraint.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    tools:context=".OverActivity">
+    tools:context=".OverActivity"
+    android:orientation="vertical">
+    <TextView
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:text="Você Perdeu POKEPARCINHA"
+        android:textAlignment="center"
+        android:textSize="42sp"
+        android:layout_marginBottom="20dp"/>
+    <TextView
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:text="Digite seu nome"
+        android:textSize="24sp"
+        android:textAlignment="center"
+        android:id="@+id/tvNome"
+        />
+    <EditText
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginBottom="10dp"
+            />
+    <Button
+        android:layout_width="250dp"
+        android:layout_height="wrap_content"
+        android:text="Jogar Novamente"
+        android:textAlignment="center"
+        android:layout_gravity="center"
+        android:id="@+id/btnPlayAgain"/>
+    <Button
+        android:layout_width="250dp"
+        android:layout_height="wrap_content"
+        android:text="Ir Para o Menu"
+        android:textAlignment="center"
+        android:layout_gravity="center"
+        android:id="@+id/btnMenu"/>
 
-</android.support.constraint.ConstraintLayout>
+
+
+
+
+</LinearLayout>

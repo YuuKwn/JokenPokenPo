@@ -21,17 +21,17 @@ class GameActivity : AppCompatActivity() {
         numeroRandom = Random()
 
         Pedra.setOnClickListener{
-            JogadaPlayer!!.setImageDrawable(ContextCompat.getDrawable(this, R.drawable.kentranquiloefavoravel))
+            JogadaPlayer!!.setImageDrawable(ContextCompat.getDrawable(this, R.drawable.gentlemander))
             realizarJogada(PEDRA)
         }
 
         Papel.setOnClickListener{
-            JogadaPlayer!!.setImageDrawable(ContextCompat.getDrawable(this, R.drawable.kenpreocupado))
+            JogadaPlayer!!.setImageDrawable(ContextCompat.getDrawable(this, R.drawable.squirtle))
             realizarJogada(PAPEL)
         }
 
         Tesoura.setOnClickListener{
-            JogadaPlayer!!.setImageDrawable(ContextCompat.getDrawable(this, R.drawable.kenfelizao))
+            JogadaPlayer!!.setImageDrawable(ContextCompat.getDrawable(this, R.drawable.bulbaman))
             realizarJogada(TESOURA)
         }
     }
@@ -44,7 +44,7 @@ class GameActivity : AppCompatActivity() {
         val jogadaPC = numeroRandom!!.nextInt(3)+1
         when(jogadaPC){
             PEDRA -> {
-                JogadaPC!!.setImageDrawable(ContextCompat.getDrawable(this, R.drawable.kentranquiloefavoravel))
+                JogadaPC!!.setImageDrawable(ContextCompat.getDrawable(this, R.drawable.gentlemander))
                 when (jogadaPlayer){
                     PAPEL -> venceu()
                     PEDRA -> empatou()
@@ -53,7 +53,7 @@ class GameActivity : AppCompatActivity() {
             }
 
             PAPEL -> {
-                JogadaPC!!.setImageDrawable(ContextCompat.getDrawable(this, R.drawable.kenpreocupado))
+                JogadaPC!!.setImageDrawable(ContextCompat.getDrawable(this, R.drawable.squirtle))
                 when (jogadaPlayer){
                     PAPEL -> empatou()
                     PEDRA -> perdeu()
@@ -62,7 +62,7 @@ class GameActivity : AppCompatActivity() {
             }
 
             TESOURA -> {
-                JogadaPC!!.setImageDrawable(ContextCompat.getDrawable(this, R.drawable.kenfelizao))
+                JogadaPC!!.setImageDrawable(ContextCompat.getDrawable(this, R.drawable.bulbaman))
                 when (jogadaPlayer){
                     PAPEL -> venceu()
                     PEDRA -> perdeu()
@@ -86,7 +86,7 @@ class GameActivity : AppCompatActivity() {
 
     private fun perdeu(){
     intent = Intent(this, OverActivity::class.java)
-        intent.putExtra("Score", Pontos)
+        intent.putExtra("Points", Pontos)
         startActivity(intent)
 
     }

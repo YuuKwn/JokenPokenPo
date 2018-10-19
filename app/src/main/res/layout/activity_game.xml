@@ -51,19 +51,19 @@
             android:id="@+id/Pedra"
             android:layout_width="100dp"
             android:layout_height="100dp"
-            android:background="@drawable/kentranquiloefavoravel" />
+            android:background="@drawable/gentlemander" />
 
         <Button
             android:id="@+id/Papel"
             android:layout_width="100dp"
             android:layout_height="100dp"
-            android:background="@drawable/kenpreocupado" />
+            android:background="@drawable/squirtle" />
 
         <Button
             android:id="@+id/Tesoura"
             android:layout_width="100dp"
             android:layout_height="100dp"
-            android:background="@drawable/kenfelizao" />
+            android:background="@drawable/bulbaman" />
 
 
     </LinearLayout>
