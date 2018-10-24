@@ -86,8 +86,10 @@ class GameActivity : AppCompatActivity() {
 
     private fun perdeu(){
     intent = Intent(this, OverActivity::class.java)
-        intent.putExtra("Points", Pontos)
+        intent.putExtra("Pontinhos", Pontos)
         startActivity(intent)
+        finish()
+
 
     }
 }
