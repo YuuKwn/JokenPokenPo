@@ -78,13 +78,13 @@ class GameActivity : AppCompatActivity() {
     }
 
     private fun venceu(){
-        Pontos = Pontos+2
+        Pontos = Pontos+2000
         Score.text = Pontos.toString()
     }
 
 
     private fun empatou(){
-        Pontos = Pontos+1
+        Pontos = Pontos+1000
         Score.text = Pontos.toString()
     }
 

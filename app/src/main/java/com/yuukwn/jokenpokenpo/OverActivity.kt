@@ -91,22 +91,22 @@ class OverActivity : AppCompatActivity() {
 
         btnMenu.setOnClickListener(){
             val pontuacao = Pontuacao(etNome.text.toString(), Pontinhos)
-            getJokenPokemonAPI()
-                    .salvarPontos(pontuacao)
+            val retrofit = Retrofit.Builder()
+                    .baseUrl("https://gamestjd.herokuapp.com")
+                    .addConverterFactory(GsonConverterFactory.create())
+                    .build()
+            val service = retrofit.create(JokenpokemonAPI::class.java!!)
+            service.salvarPontos(pontuacao)
                     .enqueue(object : Callback<Void> {
                         override fun onFailure(call: Call<Void>?, t: Throwable?) {
-                            exibirMensagemErro()
+
                         }
 
                         override fun onResponse(call: Call<Void>?, response: Response<Void>?) {
-                            if (response?.isSuccessful == true) {
-                                exibirMensagemSucesso()
 
-                            } else {
-                                exibirMensagemErro()
-                            }
                         }
                     })
+
             intent = Intent(this, MenuActivity::class.java)
             startActivity(intent)
         }
