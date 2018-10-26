@@ -1,4 +1,4 @@
-package com.yuukwn.dontcare
+package com.yuukwn.jokenpokenpo
 
 import org.junit.Test
 

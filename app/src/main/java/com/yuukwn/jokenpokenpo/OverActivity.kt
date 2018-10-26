@@ -1,12 +1,11 @@
-package com.yuukwn.dontcare
+package com.yuukwn.jokenpokenpo
 
 import android.content.Intent
 import android.support.v7.app.AppCompatActivity
 import android.os.Bundle
 import android.widget.Toast
-import com.yuukwn.dontcare.api.JokenpokemonAPI
-import com.yuukwn.dontcare.model.Pontuacao
-import kotlinx.android.synthetic.main.activity_game.*
+import com.yuukwn.jokenpokenpo.api.JokenpokemonAPI
+import com.yuukwn.jokenpokenpo.model.Pontuacao
 import kotlinx.android.synthetic.main.activity_over.*
 import retrofit2.Call
 import retrofit2.Callback
@@ -89,7 +88,30 @@ class OverActivity : AppCompatActivity() {
             intent = Intent(this, GameActivity::class.java)
             startActivity(intent)
         }
-    }
+
+        btnMenu.setOnClickListener(){
+            val pontuacao = Pontuacao(etNome.text.toString(), Pontinhos)
+            getJokenPokemonAPI()
+                    .salvarPontos(pontuacao)
+                    .enqueue(object : Callback<Void> {
+                        override fun onFailure(call: Call<Void>?, t: Throwable?) {
+                            exibirMensagemErro()
+                        }
+
+                        override fun onResponse(call: Call<Void>?, response: Response<Void>?) {
+                            if (response?.isSuccessful == true) {
+                                exibirMensagemSucesso()
+
+                            } else {
+                                exibirMensagemErro()
+                            }
+                        }
+                    })
+            intent = Intent(this, MenuActivity::class.java)
+            startActivity(intent)
+        }
+        }
+
 
     private fun exibirMensagemSucesso() {
         Toast.makeText(this, "Gravado", Toast.LENGTH_LONG).show()

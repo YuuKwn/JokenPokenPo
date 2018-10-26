@@ -1,4 +1,4 @@
-package com.yuukwn.dontcare
+package com.yuukwn.jokenpokenpo
 
 import android.content.Intent
 import android.support.v7.app.AppCompatActivity
@@ -13,11 +13,16 @@ class GameActivity : AppCompatActivity() {
     private val PEDRA = 1
     private val PAPEL = 2
     private val TESOURA = 3
+    private var Vidas = 3
+
+
 
     private var Pontos = 0
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_game)
+        tvVidas.text = Vidas.toString()
+
         numeroRandom = Random()
 
         Pedra.setOnClickListener{
@@ -26,12 +31,12 @@ class GameActivity : AppCompatActivity() {
         }
 
         Papel.setOnClickListener{
-            JogadaPlayer!!.setImageDrawable(ContextCompat.getDrawable(this, R.drawable.squirtle))
+            JogadaPlayer!!.setImageDrawable(ContextCompat.getDrawable(this, R.drawable.gentletle))
             realizarJogada(PAPEL)
         }
 
         Tesoura.setOnClickListener{
-            JogadaPlayer!!.setImageDrawable(ContextCompat.getDrawable(this, R.drawable.bulbaman))
+            JogadaPlayer!!.setImageDrawable(ContextCompat.getDrawable(this, R.drawable.gentlesaur))
             realizarJogada(TESOURA)
         }
     }
@@ -53,7 +58,7 @@ class GameActivity : AppCompatActivity() {
             }
 
             PAPEL -> {
-                JogadaPC!!.setImageDrawable(ContextCompat.getDrawable(this, R.drawable.squirtle))
+                JogadaPC!!.setImageDrawable(ContextCompat.getDrawable(this, R.drawable.gentletle))
                 when (jogadaPlayer){
                     PAPEL -> empatou()
                     PEDRA -> perdeu()
@@ -62,7 +67,7 @@ class GameActivity : AppCompatActivity() {
             }
 
             TESOURA -> {
-                JogadaPC!!.setImageDrawable(ContextCompat.getDrawable(this, R.drawable.bulbaman))
+                JogadaPC!!.setImageDrawable(ContextCompat.getDrawable(this, R.drawable.gentlesaur))
                 when (jogadaPlayer){
                     PAPEL -> venceu()
                     PEDRA -> perdeu()
@@ -85,10 +90,14 @@ class GameActivity : AppCompatActivity() {
 
 
     private fun perdeu(){
+
+        Vidas = Vidas - 1
+        tvVidas.text = Vidas.toString()
+        if(Vidas == 0){
     intent = Intent(this, OverActivity::class.java)
         intent.putExtra("Pontinhos", Pontos)
         startActivity(intent)
-        finish()
+        finish()}
 
 
     }

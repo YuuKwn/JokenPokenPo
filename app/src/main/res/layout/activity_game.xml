@@ -15,11 +15,13 @@
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:text="Pontuação:"
-            android:layout_marginLeft="300dp"/>
+            android:layout_marginLeft="280dp"
+            />
         <TextView
-            android:layout_width="match_parent"
+            android:layout_width="10dp"
             android:layout_height="wrap_content"
             android:text="0"
+            android:layout_marginRight="30dp"
             android:id="@+id/Score"/>
 
     </LinearLayout>
@@ -57,16 +59,39 @@
             android:id="@+id/Papel"
             android:layout_width="100dp"
             android:layout_height="100dp"
-            android:background="@drawable/squirtle" />
+            android:background="@drawable/gentletle" />
 
         <Button
             android:id="@+id/Tesoura"
             android:layout_width="100dp"
             android:layout_height="100dp"
-            android:background="@drawable/bulbaman" />
+            android:background="@drawable/gentlesaur" />
+
+
 
 
     </LinearLayout>
-
-
+    <LinearLayout
+        android:layout_marginTop="20dp"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="horizontal"
+        android:gravity="center">
+    <TextView
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:text="Vidas"
+        android:textSize="32sp"
+        android:textAlignment="gravity"
+        android:gravity="right"
+        android:layout_weight="0.5"/>
+        <TextView
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:id="@+id/tvVidas"
+            android:layout_weight="0.5"
+            android:textSize="32sp"
+            android:gravity="left"
+            android:textAlignment="gravity"/>
+    </LinearLayout>
 </LinearLayout>
